@@ -77,14 +77,14 @@ class DoublyLinkedList {
 class LRUCache{
   int capacity, size;
   DoublyLinkedList *pageList;
-  map<int, Node*> pageMap;
+  unordered_map<int, Node*> pageMap;
 
   public:
     LRUCache(int capacity) {
       this->capacity = capacity;
       size = 0;
         pageList = new DoublyLinkedList();
-        pageMap = map<int, Node*>();
+        pageMap = unordered_map<int, Node*>();
     }
 
     int get(int key) {
@@ -121,7 +121,7 @@ class LRUCache{
     }
 
     ~LRUCache() {
-      map<int, Node*>::iterator i1;
+      unordered_map<int, Node*>::iterator i1;
       for(i1=pageMap.begin();i1!=pageMap.end();i1++) {
           delete i1->second;
       }
